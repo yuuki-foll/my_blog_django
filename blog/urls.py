@@ -15,8 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include # include追加
+from django.conf.urls import url # markdown追加
+from django.conf.urls.static import static #markdown追加
+from django.conf import settings    #markdown追加
 
 urlpatterns = [
     path('myapp/', include('myapp.urls')),
     path('admin/', admin.site.urls),
+    #url(r'mdeditor/',include('mdeditor.urls')) #markdown追加
+    path('markdownx/',include('markdownx.urls')) #markdown追加
 ]
+
+#markdown追加
+urlpatterns += static(
+    settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT
+)
+
+#markdown追加
+""" if settings.DEBUG:
+    # static files (images, cssm javascript etc)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # """
