@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title> articles </title>
+    </head>
+    <body>
+        <h1>記事一覧</h1>
+        <ul>
+            {% for article in object_list %}
+                <a href="{% url 'detail' article.pk %}">{{article.title}}</a>
+                <div>{{article.created}}作成</div>
+            {% empty %}
+                <div>記事はありません</div>
+            {% endfor %}
+        </ul>
+        <div>記事数：{{object_list.count}}</div>
+    </body>
+</html>

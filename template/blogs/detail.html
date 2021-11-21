@@ -1,8 +1,11 @@
 <html>
     <head>
         <title> django view test </title>
+        <dev>{{blog.created | date:'Y/m/d H:i'}}作成　　　{{blog.modified | date:'Y/m/d H:i'}}更新</dev>
+        <a href="{% url 'list' %}">記事一覧に戻る</a>
     </head>
     <body>
-        <p>{{title}}</p>
+        <h1>{{blog.title}}</h1>
+        <dev>{{blog.text}}</dev>
     </body>
 </html>

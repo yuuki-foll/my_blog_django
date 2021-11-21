@@ -1,5 +1,10 @@
 # データベースについて
 
+データベースの起動
+```
+$ brew services start postgresql 
+```
+
 ## djangoの設定
 ```
 $ pip install psycopg2-binary
@@ -13,7 +18,7 @@ setting.py を変更
 $ pip install django-mdeditor
 $ pip install django-markdownx ← こっちの方が良いかも 参考(https://blog.narito.ninja/detail/102)
 ```
-# ビューの追加
+# ビューの追加(DeteilViewの例)
 myapp > views.py 以下を追加<br>
 ```python
 from django.views.generic import DetailView
@@ -27,3 +32,11 @@ class BlogDetailView(DetailView):
         return context
 ```
 
+# templateファイル)(hemlファイル)に関して
+以下のような形で記載する（blogはモデル名の頭文字が小文字ver）
+```
+<h1>{{blog.title}}</h1>
+```
+
+# URLの設定に関して
+重複したurl名はつけられない
